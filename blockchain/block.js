@@ -14,12 +14,12 @@ class Block {
 
     toString() {
         return `Block -
-        TimeStamp: ${this.timestamp}
-        LastHash: ${this.lastHash.substring(0, 10)}
-        Hash: ${this.hash.substring(0, 10)}
-        Nonce: ${this.nonce}
+        TimeStamp : ${this.timestamp}
+        LastHash  : ${this.lastHash.substring(0, 10)}
+        Hash      : ${this.hash.substring(0, 10)}
+        Nonce     : ${this.nonce}
         Difficulty: ${this.difficulty}
-        Data: ${this.data}`;
+        Data      : ${this.data}`;
     }
 
     static genesis() {
