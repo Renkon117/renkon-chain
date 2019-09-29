@@ -13,7 +13,7 @@ class TransactionPool {
         }
     }
 
-    exsistingTransaction(address) {
+    existingTransaction(address) {
         return this.transactions.find(t => t.input.address === address);
     }
 }
