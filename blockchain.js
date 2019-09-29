@@ -1,6 +1,6 @@
 const Block = require('./block');
 
-class BlockChain {
+class Blockchain {
     constructor() {
         this.chain = [Block.genesis()];
     }
@@ -8,7 +8,6 @@ class BlockChain {
     addBlock(data) {
         const block = Block.mineBlock(this.chain[this.chain.length - 1], data);
         this.chain.push(block);
-
         return block;
     }
 }
