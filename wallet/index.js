@@ -1,4 +1,4 @@
-const ChainUtil = require('../chain-utils');
+const ChainUtil = require('../chain-util');
 
 const { INITIAL_BALANCE } = require('../config');
 
@@ -13,6 +13,10 @@ class Wallet {
         return `Wallet -
         publicKey: ${this.publicKey.toString()}
         balance  : ${this.balance}`
+    }
+
+    sign(dataHash) {
+        return this.keyPair.sign(dataHash);
     }
 }
 
