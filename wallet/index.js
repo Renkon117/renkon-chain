@@ -11,8 +11,8 @@ class Wallet {
 
     toString() {
         return `Wallet -
-        publicKey: ${this.publicKey.toString()}
-        balance  : ${this.balance}`
+      publicKey: ${this.publicKey.toString()}
+      balance  : ${this.balance}`
     }
 
     sign(dataHash) {
@@ -23,11 +23,12 @@ class Wallet {
         this.balance = this.calculateBalance(blockchain);
 
         if (amount > this.balance) {
-            console.log(`Amount: ${amount}, exceeds current balance: ${this.balance}`);
+            console.log(`Amount: ${amount} exceceds current balance: ${this.balance}`);
             return;
         }
 
         let transaction = transactionPool.existingTransaction(this.publicKey);
+
         if (transaction) {
             transaction.update(this, recipient, amount);
         } else {
@@ -46,12 +47,11 @@ class Wallet {
         }));
 
         const walletInputTs = transactions
-            .filter(transaction => { transaction.input.address === this.publicKey });
+            .filter(transaction => transaction.input.address === this.publicKey);
 
         let startTime = 0;
 
         if (walletInputTs.length > 0) {
-
             const recentInputT = walletInputTs.reduce(
                 (prev, current) => prev.input.timestamp > current.input.timestamp ? prev : current
             );
